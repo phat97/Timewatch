@@ -5,7 +5,7 @@ import { TimersDashboard } from "./components/layouts/TimersDashboard";
 export const App = () => {
   return (
     <div className="App">
-      Main App
+      <h1>TimeWatch</h1>
       <TimersDashboard />
     </div>
   );

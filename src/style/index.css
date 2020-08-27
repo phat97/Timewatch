@@ -5,10 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+  box-sizing: border-box;
 
-div {
-  border: 1px solid black;
-  width: 400px;
-  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
