@@ -1,0 +1,47 @@
+.field {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 8px;
+  font-weight: bolder;
+}
+
+.field input {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 7px 10px;
+  margin: 5px;
+}
+
+.timer-form-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  padding: 5px 20px;
+  margin: 5px 0;
+  font-weight: bolder;
+}
+
+.submit-button {
+  color: blue;
+  border: 1px solid blue;
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+}
+
+.submit-button:hover {
+  color: white;
+  background: blue;
+}
+
+.cancel-button {
+  color: red;
+  border: 1px solid red;
+  border-radius: 0 3px 3px 0;
+}
+
+.cancel-button:hover {
+  color: white;
+  background: red;
+}
