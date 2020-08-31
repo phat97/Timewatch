@@ -14,8 +14,8 @@ export const TimerForm = (props) => {
         <input type="text" id="project" defaultValue={props.project} />
       </div>
       <div className="timer-form-buttons">
-        <div className="submit-button button">{buttonText}</div>
-        <div className="cancel-button button">Cancel</div>
+        <button className="submit-button button">{buttonText}</button>
+        <button className="cancel-button button">Cancel</button>
       </div>
     </div>
   );

@@ -21,9 +21,9 @@ export const Timer = (props) => {
           </div>
         </div>
       </div>
-      <div className={`runtime-button ${props.running ? "running" : ""}`}>
+      <button className={`runtime-button ${props.running ? "running" : ""}`}>
         {buttonText}
-      </div>
+      </button>
     </div>
   );
 };

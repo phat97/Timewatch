@@ -44,6 +44,7 @@
   font-weight: bolder;
   padding: 5px 0;
   color: green;
+  width: 100%;
 }
 
 .runtime-button:hover {
