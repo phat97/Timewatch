@@ -6,7 +6,6 @@ import "../../style/timerDashboard.css";
 export const TimersDashboard = (props) => {
   return (
     <div className="timer-dashboard">
-      TimersDashboard
       <TimerList />
       <ToggleTimerForm />
     </div>

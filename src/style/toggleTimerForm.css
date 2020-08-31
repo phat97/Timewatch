@@ -1,0 +1,13 @@
+.toggle-time-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.toggle-add {
+  font-size: 35px;
+}
+
+.toggle-add:hover {
+  color: dodgerblue;
+}

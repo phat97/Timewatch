@@ -12,7 +12,6 @@ export const TimerList = (props) => {
   };
   return (
     <div className="timerlist">
-      TimerList
       <EditableTimer
         title={dummyData.title}
         project={dummyData.project}
