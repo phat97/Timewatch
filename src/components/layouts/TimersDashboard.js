@@ -57,6 +57,20 @@ export const TimersDashboard = (props) => {
     );
   };
 
+  const updateElapsed = (attrs) => {
+    setTimers(
+      timers.map((timer) => {
+        if (timer.id === attrs.id) {
+          return Object.assign({}, timer, {
+            elapsed: attrs.elapsed,
+          });
+        } else {
+          return timer;
+        }
+      })
+    );
+  };
+
   const deleteTimer = (id) => {
     setTimers(timers.filter((timer) => timer.id !== id));
   };
@@ -67,6 +81,7 @@ export const TimersDashboard = (props) => {
         timers={timers}
         onFormSubmit={handleEditFormSubmit}
         onFormDelete={handleDeleteFormSubmit}
+        updateElapsed={updateElapsed}
       />
       <ToggleTimerForm onFormSubmit={handleCreateFormSubmit} />
     </div>

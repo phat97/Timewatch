@@ -2,13 +2,45 @@ import React from "react";
 import "../../style/timer.css";
 import { helpers } from "../../helper";
 import { RiDeleteBin5Fill, RiEdit2Fill } from "react-icons/ri";
+import { useEffect, useState } from "react";
 
 export const Timer = (props) => {
-  const elapsedString = helpers.renderElapsedString(props.elapsed);
-  const buttonText = props.runningSince ? "Stop" : "Start";
+  const [isRunning, setIsRunning] = useState(false);
+  const [localElapsed, setLocalElapsedTime] = useState(props.elapsed);
+
+  const elapsedString = helpers.renderElapsedString(localElapsed);
+  const buttonText = isRunning ? "Stop" : "Start";
 
   const handleDeleteForm = () => {
     props.onFormDelete(props.id);
+  };
+
+  useEffect(() => {
+    let interval;
+
+    if (isRunning) {
+      interval = setInterval(
+        () => setLocalElapsedTime((prevElapsedTime) => prevElapsedTime + 1000),
+        1000
+      );
+    }
+    return () => clearInterval(interval);
+  }, [isRunning]);
+
+  const handleUpdateElapsed = () => {
+    props.updateElapsed({
+      id: props.id,
+      elapsed: localElapsed,
+    });
+  };
+
+  const handleStopwatch = () => {
+    let status = isRunning;
+
+    if (status) {
+      handleUpdateElapsed();
+    }
+    setIsRunning(!status);
   };
 
   return (
@@ -27,7 +59,8 @@ export const Timer = (props) => {
         </div>
       </div>
       <button
-        className={`runtime-button ${props.runningSince ? "running" : ""}`}
+        className={`runtime-button ${isRunning ? "running" : ""}`}
+        onClick={handleStopwatch}
       >
         {buttonText}
       </button>
