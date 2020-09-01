@@ -10,7 +10,6 @@ export const TimerList = (props) => {
       title={timer.title}
       project={timer.project}
       elapsed={timer.elapsed}
-      runningSince={timer.runningSince}
       onFormSubmit={props.onFormSubmit}
       onFormDelete={props.onFormDelete}
       updateElapsed={props.updateElapsed}

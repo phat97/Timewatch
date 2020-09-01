@@ -11,10 +11,6 @@ export const Timer = (props) => {
   const elapsedString = helpers.renderElapsedString(localElapsed);
   const buttonText = isRunning ? "Stop" : "Start";
 
-  const handleDeleteForm = () => {
-    props.onFormDelete(props.id);
-  };
-
   useEffect(() => {
     let interval;
 
@@ -26,6 +22,11 @@ export const Timer = (props) => {
     }
     return () => clearInterval(interval);
   }, [isRunning]);
+
+  const handleDeleteForm = () => {
+    handleStopwatch();
+    props.onFormDelete(props.id);
+  };
 
   const handleEdit = () => {
     handleStopwatch();
