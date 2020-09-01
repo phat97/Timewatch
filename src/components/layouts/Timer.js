@@ -27,6 +27,11 @@ export const Timer = (props) => {
     return () => clearInterval(interval);
   }, [isRunning]);
 
+  const handleEdit = () => {
+    handleStopwatch();
+    props.onEditClick();
+  };
+
   const handleUpdateElapsed = () => {
     props.updateElapsed({
       id: props.id,
@@ -53,7 +58,7 @@ export const Timer = (props) => {
           <div className="timer-delete" onClick={handleDeleteForm}>
             <RiDeleteBin5Fill />
           </div>
-          <div className="timer-edit" onClick={props.onEditClick}>
+          <div className="timer-edit" onClick={handleEdit}>
             <RiEdit2Fill />
           </div>
         </div>
