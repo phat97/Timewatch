@@ -5,7 +5,7 @@ import { RiDeleteBin5Fill, RiEdit2Fill } from "react-icons/ri";
 
 export const Timer = (props) => {
   const elapsedString = helpers.renderElapsedString(props.elapsed);
-  const buttonText = props.running ? "Stop" : "Start";
+  const buttonText = props.runningSince ? "Stop" : "Start";
   return (
     <div>
       <div className="timer container">
@@ -21,7 +21,9 @@ export const Timer = (props) => {
           </div>
         </div>
       </div>
-      <button className={`runtime-button ${props.running ? "running" : ""}`}>
+      <button
+        className={`runtime-button ${props.runningSince ? "running" : ""}`}
+      >
         {buttonText}
       </button>
     </div>
