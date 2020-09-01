@@ -50,6 +50,7 @@ export const EditableTimer = (props) => {
           elapsed={props.elapsed}
           running={props.runningSince}
           onEditClick={handleEditClick}
+          onFormDelete={props.onFormDelete}
         />
       </div>
     );

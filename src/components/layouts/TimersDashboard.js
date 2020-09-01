@@ -23,11 +23,19 @@ export const TimersDashboard = (props) => {
     },
   ];
 
+  const [timers, setTimers] = useState(dummyData);
+
+  const handleCreateFormSubmit = (timer) => {
+    createTimer(timer);
+  };
+
   const handleEditFormSubmit = (attrs) => {
     updateTimer(attrs);
   };
 
-  const [timers, setTimers] = useState(dummyData);
+  const handleDeleteFormSubmit = (attrs) => {
+    deleteTimer(attrs);
+  };
 
   const createTimer = (timer) => {
     const t = helpers.newTimer(timer);
@@ -49,13 +57,17 @@ export const TimersDashboard = (props) => {
     );
   };
 
-  const handleCreateFormSubmit = (timer) => {
-    createTimer(timer);
+  const deleteTimer = (id) => {
+    setTimers(timers.filter((timer) => timer.id !== id));
   };
 
   return (
     <div className="timer-dashboard">
-      <TimerList timers={timers} onFormSubmit={handleEditFormSubmit} />
+      <TimerList
+        timers={timers}
+        onFormSubmit={handleEditFormSubmit}
+        onFormDelete={handleDeleteFormSubmit}
+      />
       <ToggleTimerForm onFormSubmit={handleCreateFormSubmit} />
     </div>
   );

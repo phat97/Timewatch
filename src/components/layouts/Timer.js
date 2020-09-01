@@ -7,6 +7,10 @@ export const Timer = (props) => {
   const elapsedString = helpers.renderElapsedString(props.elapsed);
   const buttonText = props.runningSince ? "Stop" : "Start";
 
+  const handleDeleteForm = () => {
+    props.onFormDelete(props.id);
+  };
+
   return (
     <div>
       <div className="timer container">
@@ -14,7 +18,7 @@ export const Timer = (props) => {
         <div className="timer-project">{props.project}</div>
         <div className="timer-elapsed">{elapsedString}</div>
         <div className="timer-icons">
-          <div className="timer-delete">
+          <div className="timer-delete" onClick={handleDeleteForm}>
             <RiDeleteBin5Fill />
           </div>
           <div className="timer-edit" onClick={props.onEditClick}>
