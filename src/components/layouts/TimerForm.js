@@ -3,19 +3,27 @@ import { useEffect, useState } from "react";
 import "../../style/timerForm.css";
 
 export const TimerForm = (props) => {
-  const [state, setState] = useState({
-    title: props.title || "",
-    project: props.project || "",
-  });
+  const [title, setTitle] = useState(props.title || "");
+  const [project, setProject] = useState(props.Project || "");
 
   const handleTitleChange = (e) => {
-    setState({ title: e.target.value });
+    setTitle(e.target.value);
   };
   const handleProjectChange = (e) => {
-    setState({ title: e.target.value });
+    setProject(e.target.value);
   };
 
-  const buttonText = props.title ? "Update" : "Create";
+  const handleSubmit = () => {
+    console.log(title);
+    console.log(project);
+    props.onFormSubmit({
+      id: props.id,
+      title: title,
+      project: project,
+    });
+  };
+
+  const buttonText = props.id ? "Update" : "Create";
   return (
     <div className="timer-form container">
       <div className="field">
@@ -23,7 +31,7 @@ export const TimerForm = (props) => {
         <input
           type="text"
           id="title"
-          defaultValue={state.title}
+          defaultValue={title}
           onChange={handleTitleChange}
         />
       </div>
@@ -32,13 +40,17 @@ export const TimerForm = (props) => {
         <input
           type="text"
           id="project"
-          defaultValue={state.project}
+          defaultValue={project}
           onChange={handleProjectChange}
         />
       </div>
       <div className="timer-form-buttons">
-        <button className="submit-button button">{buttonText}</button>
-        <button className="cancel-button button">Cancel</button>
+        <button className="submit-button button" onClick={handleSubmit}>
+          {buttonText}
+        </button>
+        <button className="cancel-button button" onClick={props.onFormClose}>
+          Cancel
+        </button>
       </div>
     </div>
   );

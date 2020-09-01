@@ -11,8 +11,22 @@ export const ToggleTimerForm = (props) => {
     setIsOpen({ isOpen: true });
   };
 
+  const handleFormClose = () => {
+    setIsOpen({ isOpen: false });
+  };
+
+  const handleFormSubmit = (timer) => {
+    props.onFormSubmit(timer);
+    setIsOpen({ isOpen: false });
+  };
+
   if (isOpen) {
-    return <TimerForm />;
+    return (
+      <TimerForm
+        onFormSubmit={handleFormSubmit}
+        onFormClose={handleFormClose}
+      />
+    );
   } else {
     return (
       <div className="toggle-time-form">
