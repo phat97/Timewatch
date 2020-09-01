@@ -8,16 +8,16 @@ export const ToggleTimerForm = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleFormOpen = () => {
-    setIsOpen({ isOpen: true });
+    setIsOpen(true);
   };
 
   const handleFormClose = () => {
-    setIsOpen({ isOpen: false });
+    setIsOpen(false);
   };
 
   const handleFormSubmit = (timer) => {
     props.onFormSubmit(timer);
-    setIsOpen({ isOpen: false });
+    setIsOpen(false);
   };
 
   if (isOpen) {
