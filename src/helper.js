@@ -3,7 +3,7 @@ import { v4 } from "uuid";
 export const helpers = (function () {
   function newTimer(attrs = {}) {
     const timer = {
-      title: attrs.title || "Timer",
+      title: attrs.title || "Title",
       project: attrs.project || "Project",
       id: v4(), // eslint-disable-line no-undef
       elapsed: 0,

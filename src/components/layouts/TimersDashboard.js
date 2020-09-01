@@ -36,6 +36,7 @@ export const TimersDashboard = (props) => {
   };
 
   const createTimer = (timer) => {
+    console.log(timer);
     const t = helpers.newTimer(timer);
     setTimers((timers) => [...timers, t]);
   };
@@ -45,8 +46,8 @@ export const TimersDashboard = (props) => {
       timers.map((timer) => {
         if (timer.id === attrs.id) {
           return Object.assign({}, timer, {
-            title: attrs.title,
-            project: attrs.project,
+            title: attrs.title || "Title",
+            project: attrs.project || "Project",
           });
         } else {
           return timer;
