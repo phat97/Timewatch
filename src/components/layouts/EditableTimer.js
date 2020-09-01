@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Timer } from "./Timer";
 import { TimerForm } from "./TimerForm";
 import "../../style/editableTimer.css";
