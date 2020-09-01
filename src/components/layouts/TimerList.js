@@ -11,6 +11,7 @@ export const TimerList = (props) => {
       project={timer.project}
       elapsed={timer.elapsed}
       runningSince={timer.runningSince}
+      onFormSubmit={props.onFormSubmit}
     />
   ));
   return <div className="timerlist">{timers}</div>;

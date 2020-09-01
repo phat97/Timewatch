@@ -6,6 +6,7 @@ import { RiDeleteBin5Fill, RiEdit2Fill } from "react-icons/ri";
 export const Timer = (props) => {
   const elapsedString = helpers.renderElapsedString(props.elapsed);
   const buttonText = props.runningSince ? "Stop" : "Start";
+
   return (
     <div>
       <div className="timer container">
@@ -16,7 +17,7 @@ export const Timer = (props) => {
           <div className="timer-delete">
             <RiDeleteBin5Fill />
           </div>
-          <div className="timer-edit">
+          <div className="timer-edit" onClick={props.onEditClick}>
             <RiEdit2Fill />
           </div>
         </div>

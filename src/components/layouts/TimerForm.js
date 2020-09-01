@@ -4,7 +4,7 @@ import "../../style/timerForm.css";
 
 export const TimerForm = (props) => {
   const [title, setTitle] = useState(props.title || "");
-  const [project, setProject] = useState(props.Project || "");
+  const [project, setProject] = useState(props.project || "");
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -14,8 +14,6 @@ export const TimerForm = (props) => {
   };
 
   const handleSubmit = () => {
-    console.log(title);
-    console.log(project);
     props.onFormSubmit({
       id: props.id,
       title: title,

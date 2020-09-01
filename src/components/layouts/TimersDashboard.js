@@ -22,13 +22,31 @@ export const TimersDashboard = (props) => {
       runningSince: null,
     },
   ];
+
+  const handleEditFormSubmit = (attrs) => {
+    updateTimer(attrs);
+  };
+
   const [timers, setTimers] = useState(dummyData);
 
   const createTimer = (timer) => {
     const t = helpers.newTimer(timer);
     setTimers((timers) => [...timers, t]);
-    console.log(t);
-    console.log(timers);
+  };
+
+  const updateTimer = (attrs) => {
+    setTimers(
+      timers.map((timer) => {
+        if (timer.id === attrs.id) {
+          return Object.assign({}, timer, {
+            title: attrs.title,
+            project: attrs.project,
+          });
+        } else {
+          return timer;
+        }
+      })
+    );
   };
 
   const handleCreateFormSubmit = (timer) => {
@@ -37,7 +55,7 @@ export const TimersDashboard = (props) => {
 
   return (
     <div className="timer-dashboard">
-      <TimerList timers={timers} />
+      <TimerList timers={timers} onFormSubmit={handleEditFormSubmit} />
       <ToggleTimerForm onFormSubmit={handleCreateFormSubmit} />
     </div>
   );
