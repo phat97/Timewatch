@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TimerList } from "./TimerList";
 import { ToggleTimerForm } from "./ToggleTimerForm";
 import "../../style/timerDashboard.css";
@@ -6,22 +6,14 @@ import { v4 } from "uuid";
 import { helpers } from "../../helper";
 
 export const TimersDashboard = (props) => {
-  const dummyData = [
-    {
-      title: "Practice squat",
-      project: "Gym Chores",
-      id: v4(),
-      elapsed: 5456099,
-    },
-    {
-      title: "Bake squash",
-      project: "Kitchen Chores",
-      id: v4(),
-      elapsed: 1273998,
-    },
-  ];
+  const [timers, setTimers] = useState(
+    JSON.parse(localStorage.getItem("localData")) || []
+  );
 
-  const [timers, setTimers] = useState(dummyData);
+  useEffect(() => {
+    let data = JSON.stringify(timers);
+    localStorage.setItem("localData", data);
+  });
 
   const handleCreateFormSubmit = (timer) => {
     createTimer(timer);
@@ -36,7 +28,6 @@ export const TimersDashboard = (props) => {
   };
 
   const createTimer = (timer) => {
-    console.log(timer);
     const t = helpers.newTimer(timer);
     setTimers((timers) => [...timers, t]);
   };
