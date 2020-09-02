@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { TimerList } from "./TimerList";
 import { ToggleTimerForm } from "./ToggleTimerForm";
 import "../../style/timerDashboard.css";
-import { v4 } from "uuid";
 import { helpers } from "../../helper";
 
 export const TimersDashboard = (props) => {
