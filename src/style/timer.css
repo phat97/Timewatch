@@ -14,8 +14,8 @@
 
 .timer-elapsed {
   font-weight: bolder;
-  font-size: 24px;
-  margin: 5px auto;
+  font-size: 26px;
+  margin: 10px auto;
 }
 
 .timer-elapsed {
@@ -30,7 +30,7 @@
 
 .timer-icons > * {
   margin: 0 6px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .timer-icons > * :hover {
@@ -40,11 +40,12 @@
 .runtime-button {
   text-align: center;
   border: 1px solid green;
-  border-radius: 0 0 5px 5px;
+
   font-weight: bolder;
   padding: 5px 0;
   color: green;
   width: 100%;
+  box-shadow: 1px 1px darkgreen;
 }
 
 .runtime-button:hover {

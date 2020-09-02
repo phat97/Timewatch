@@ -1,11 +1,11 @@
 .toggle-time-form {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .toggle-add {
-  font-size: 35px;
+  font-size: 40px;
 }
 
 .toggle-add:hover {
