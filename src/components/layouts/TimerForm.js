@@ -3,16 +3,37 @@ import { useState } from "react";
 import "../../style/timerForm.css";
 
 export const TimerForm = (props) => {
+  /**
+   * Title form data
+   */
   const [title, setTitle] = useState(props.title || "");
+
+  /**
+   * Project form data
+   */
   const [project, setProject] = useState(props.project || "");
 
+  const buttonText = props.id ? "Update" : "Create";
+
+  /**
+   * Store new title
+   * @param {Event} e
+   */
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
+
+  /**
+   * Store new project
+   * @param {Event} e
+   */
   const handleProjectChange = (e) => {
     setProject(e.target.value);
   };
 
+  /**
+   * handle form subission
+   */
   const handleSubmit = () => {
     props.onFormSubmit({
       id: props.id,
@@ -21,7 +42,6 @@ export const TimerForm = (props) => {
     });
   };
 
-  const buttonText = props.id ? "Update" : "Create";
   return (
     <div className="timer-form container">
       <div className="field">

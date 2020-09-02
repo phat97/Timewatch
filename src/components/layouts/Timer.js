@@ -3,36 +3,59 @@ import "../../style/timer.css";
 import { helpers } from "../../helper";
 import { RiDeleteBin5Fill, RiEdit2Fill } from "react-icons/ri";
 import { useEffect, useState } from "react";
+import { TimeInterval } from "../constants/constants";
 
 export const Timer = (props) => {
+  /**
+   * State if timer is currently running
+   */
   const [isRunning, setIsRunning] = useState(false);
+
+  /**
+   * State for elasped time counter
+   */
   const [localElapsed, setLocalElapsedTime] = useState(props.elapsed);
 
   const elapsedString = helpers.renderElapsedString(localElapsed);
   const buttonText = isRunning ? "Stop" : "Start";
 
+  /**
+   * Update localElapsed each second and render to user
+   */
   useEffect(() => {
     let interval;
 
     if (isRunning) {
       interval = setInterval(
-        () => setLocalElapsedTime((prevElapsedTime) => prevElapsedTime + 1000),
-        1000
+        () =>
+          setLocalElapsedTime(
+            (prevElapsedTime) => prevElapsedTime + TimeInterval.ONE_SECOND
+          ),
+        TimeInterval.ONE_SECOND
       );
     }
     return () => clearInterval(interval);
   }, [isRunning]);
 
+  /**
+   * Handle for deletion
+   */
   const handleDeleteForm = () => {
     handleStopwatch();
     props.onFormDelete(props.id);
   };
 
+  /**
+   * Handle form edit
+   */
   const handleEdit = () => {
     handleStopwatch();
     props.onEditClick();
   };
 
+  /**
+   * Update parent with new elapsed time
+   */
   const handleUpdateElapsed = () => {
     props.updateElapsed({
       id: props.id,
@@ -40,6 +63,9 @@ export const Timer = (props) => {
     });
   };
 
+  /**
+   * Update parent when timer is stopped
+   */
   const handleStopwatch = () => {
     let status = isRunning;
 
@@ -54,7 +80,7 @@ export const Timer = (props) => {
       <div className="timer container">
         <div className="timer-tile">{props.title}</div>
         <div className="timer-project">{props.project}</div>
-        <div className="timer-elapsed">{elapsedString}</div>
+        <div className="timer-elapsed no-select">{elapsedString}</div>
         <div className="timer-icons">
           <div className="timer-delete" onClick={handleDeleteForm}>
             <RiDeleteBin5Fill />

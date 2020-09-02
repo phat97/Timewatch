@@ -5,16 +5,30 @@ import { VscDiffAdded } from "react-icons/vsc";
 import "../../style/toggleTimerForm.css";
 
 export const ToggleTimerForm = (props) => {
+  /**
+   * State to determine if new form page is open
+   */
   const [isOpen, setIsOpen] = useState(false);
 
+  /**
+   * Open form
+   */
   const handleFormOpen = () => {
     setIsOpen(true);
   };
 
+  /**
+   * Close form
+   */
   const handleFormClose = () => {
     setIsOpen(false);
   };
 
+  /**
+   * Close form after data is submitted
+   *
+   * @param {Object} timer
+   */
   const handleFormSubmit = (timer) => {
     props.onFormSubmit(timer);
     setIsOpen(false);

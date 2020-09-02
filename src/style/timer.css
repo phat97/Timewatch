@@ -14,8 +14,8 @@
 
 .timer-elapsed {
   font-weight: bolder;
-  font-size: 26px;
-  margin: 10px auto;
+  font-size: 28px;
+  margin: 15px auto;
 }
 
 .timer-elapsed {
@@ -55,7 +55,6 @@
 
 .runtime-button.running {
   border: 1px solid red;
-  border-radius: 0 0 5px 5px;
   color: red;
 }
 
